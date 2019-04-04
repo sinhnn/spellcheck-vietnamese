@@ -8,12 +8,12 @@ pip3 install -r requirements.txt
 
 # Usage
 ## Init dictionary from vocab file
-`bash
+```bash
 python3 --infile="a_vocab_file" \
 	--update-dict=True \
 	--odfile="your_dict_file.json" \
 	--ovfile="o_vocab_file"
-`	
+```	
 
 ## Update dicitonary
 ```bash
