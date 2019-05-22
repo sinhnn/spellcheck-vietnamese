@@ -1,7 +1,7 @@
 # vim: set et sw=2 ts=2 tw=79 : # 
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
-# File              : valid_addrs.py
+# File              : 
 # Author            : sinhnn <sinhnn.92@gmail.com>
 # Date              : 18.01.2019
 # Last Modified Date: 18.01.2019
@@ -92,6 +92,25 @@ def to_list(d,prefix=[]):
     else: prefix += [str(k)];
     if isinstance(v, dict): return to_list(v,prefix)
     else: return prefix
+
+
+def valid_path(d, validpath=[], *path):
+    if (len(path) == 0): 
+        return valid_path
+    try: 
+        return valid_path(d[path[0]], validpath = valid_path + [path[0]], list(path[1:]))
+    except KeyError:
+        print("Invalid key: '{}'".format(path[0]))
+        return valid_path[0:-1]
+
+def get_path(d, *path):
+    if len(path) == 0: return d
+    try:
+        return get_path(d[path[0]], path[1:])
+    except KeyError:
+        print("Invalid key: '{}'".format(path[0]))
+        return False
+
 
 # ----------------------------------------------------------------------------
 class SpellCheck():
